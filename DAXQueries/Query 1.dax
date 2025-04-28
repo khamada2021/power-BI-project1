@@ -1,0 +1,5 @@
+EVALUATE
+SELECTCOLUMNS(
+    ALLCOLUMNS('TableName'),
+    "Column Name", NAMEOF('TableName'[Column])
+)

@@ -1,0 +1,679 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Sheet1\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.132.1053.0 (24.08)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Sheet1",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "changedProperties": [
+          {
+            "property": "IsHidden"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Country Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f7499dc0-c9f7-4986-b721-abdda1fa4ae6",
+            "sourceColumn": "Country Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Country Code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e4b4b4db-6e34-475a-82c2-37227ff3856d",
+            "sourceColumn": "Country Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Series Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b88c0fb9-3001-4ba5-8ce9-5d76f56deea7",
+            "sourceColumn": "Series Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Series Code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c7ff2bae-d802-4df8-a56a-703fef663e1e",
+            "sourceColumn": "Series Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "4d3a5c99-861c-40e0-a164-1077cba61480",
+            "sourceColumn": "Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Value",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "80964a01-7754-46e0-9168-12e8668b1a04",
+            "sourceColumn": "Value",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "2a0e3789-2f65-4247-82b0-892e32772943",
+        "measures": [
+          {
+            "name": "Agriculture Contribution",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM(Sheet1 [Value]),",
+              "    Sheet1[Series Name] = \"Agriculture, forestry, and fishing, value added (% of GDP)\"",
+              ")",
+              ""
+            ],
+            "lineageTag": "612ee145-a31b-4826-8f04-75865416b642"
+          },
+          {
+            "name": "Manufacturing Contribution",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM(Sheet1 [Value]),",
+              "    Sheet1[Series Name] = \"Manufacturing, value added (% of GDP)\"",
+              ")",
+              ""
+            ],
+            "lineageTag": "718db48d-d748-4e09-92c8-ee9be5fd6d93"
+          },
+          {
+            "name": "Debt Contribution",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM(Sheet1[Value]),",
+              "    FILTER(",
+              "        Sheet1,",
+              "        TRIM(Sheet1[Series Name]) = \"Central government debt, total (% of GDP)\"",
+              "    )",
+              ")",
+              ""
+            ],
+            "lineageTag": "9175b04d-0c63-4289-976c-7f32a121bf84"
+          },
+          {
+            "name": "Carbon Intensity",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM(Sheet1[Value]),",
+              "    FILTER(",
+              "        Sheet1,",
+              "        TRIM(Sheet1[Series Name]) = \"Carbon intensity of GDP (kg CO2e per constant 2015 US$ of GDP)\"",
+              "    )",
+              ")",
+              ""
+            ],
+            "lineageTag": "98f666f9-ccef-42a9-af78-b3a30625eb62"
+          },
+          {
+            "name": "GDP per Capita",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM(Sheet1[Value]),",
+              "    Sheet1[Series Name] = \"GDP per capita (current US$)\"",
+              ")",
+              ""
+            ],
+            "lineageTag": "89a33fe1-e934-454f-a40c-3d67fdfc15c9"
+          },
+          {
+            "name": "Health Expenditure",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM(Sheet1[Value]),",
+              "    Sheet1[Series Name] = \"Current health expenditure (% of GDP)\"",
+              ")",
+              ""
+            ],
+            "lineageTag": "1b91deb4-df9f-4613-86aa-de2ced956ea9"
+          },
+          {
+            "name": "Avg Carbon Intensity",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "AVERAGEX(",
+              "    FILTER(",
+              "        Sheet1,",
+              "        TRIM(Sheet1[Series Name]) = \"Carbon intensity of GDP (kg CO2e per constant 2015 US$ of GDP)\"",
+              "    ),",
+              "    Sheet1[Value]",
+              ")",
+              ""
+            ],
+            "lineageTag": "665c30e1-71dd-4f42-b40e-a65570f8a4db"
+          },
+          {
+            "name": "Avg Health Expenditure",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "AVERAGEX(",
+              "    FILTER(",
+              "        Sheet1,",
+              "        TRIM(Sheet1[Series Name]) = \"Current health expenditure (% of GDP)\"",
+              "    ),",
+              "    Sheet1[Value]",
+              ")",
+              ""
+            ],
+            "lineageTag": "d289a5b9-96d6-43b5-be57-ed4bceb051da"
+          },
+          {
+            "name": "Avg GDP per Capita",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "AVERAGEX(",
+              "    FILTER(",
+              "        Sheet1,",
+              "        TRIM(Sheet1[Series Name]) = \"GDP per capita (current US$)\"",
+              "    ),",
+              "    Sheet1[Value]",
+              ")"
+            ],
+            "lineageTag": "eea6fc6a-6057-47e8-8a33-eeb0d8c874d1"
+          },
+          {
+            "name": "GDP Growth %",
+            "expression": [
+              "",
+              "VAR CurrentYear = MAX('Sheet1'[Year])",
+              "VAR CurrentGDP = ",
+              "    CALCULATE(",
+              "        SUM('Sheet1'[Value]),",
+              "        'Sheet1'[Series Name] = \"GDP per capita (current US$)\"",
+              "    )",
+              "VAR PreviousGDP = ",
+              "    CALCULATE(",
+              "        SUM('Sheet1'[Value]),",
+              "        'Sheet1'[Series Name] = \"GDP per capita (current US$)\",",
+              "        'Sheet1'[Year] = CurrentYear - 1",
+              "    )",
+              "RETURN ",
+              "IF(",
+              "    NOT(ISBLANK(PreviousGDP)),",
+              "    DIVIDE(CurrentGDP - PreviousGDP, PreviousGDP, 0) * 100,",
+              "    BLANK()",
+              ")",
+              ""
+            ],
+            "formatString": "0",
+            "lineageTag": "70e0540d-cbde-41e1-98c4-e76992902306"
+          },
+          {
+            "name": "Dominant Sector",
+            "expression": [
+              "",
+              "VAR Agriculture = ",
+              "    CALCULATE(",
+              "        SUM('Sheet1'[Value]),",
+              "        'Sheet1'[Series Name] = \"Agriculture, forestry, and fishing, value added (% of GDP)\"",
+              "    )",
+              "VAR Manufacturing = ",
+              "    CALCULATE(",
+              "        SUM('Sheet1'[Value]),",
+              "        'Sheet1'[Series Name] = \"Manufacturing, value added (% of GDP)\"",
+              "    )",
+              "RETURN",
+              "IF(",
+              "    Agriculture > Manufacturing,",
+              "    \"Agriculture\",",
+              "    \"Manufacturing\"",
+              ")",
+              ""
+            ],
+            "lineageTag": "3767060b-6127-45c1-9b5e-96efb4da3eed"
+          },
+          {
+            "name": "Total Debt",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    SUM('Sheet1'[Value]),",
+              "    'Sheet1'[Series Name] = \"Central government debt, total (% of GDP)\"",
+              ")",
+              ""
+            ],
+            "lineageTag": "195703f9-a95f-49bf-8e1b-5269d99d1d44"
+          },
+          {
+            "name": "GDP Target (Previous Year)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR CurrentYear = MAX('Sheet1'[Year])",
+              "RETURN ",
+              "CALCULATE(",
+              "    AVERAGE('Sheet1'[Value]),",
+              "    'Sheet1'[Series Name] = \"GDP per capita (current US$)\",",
+              "    'Sheet1'[Year] = CurrentYear - 1",
+              ")",
+              ""
+            ],
+            "lineageTag": "b2508a91-3305-40a8-8c0d-b9ab215b8879"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Sheet1",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"C:\\Users\\MUTAHARI\\Desktop\\READY -World_Development_Indicators (2) (version 1).xlsx\"), null, true),",
+                "    Sheet1_Sheet = Source{[Item=\"Sheet1\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Sheet1_Sheet,{{\"Column1\", Int64.Type}, {\"Column2\", type any}, {\"Column3\", type text}, {\"Column4\", type text}, {\"Column5\", type text}, {\"Column6\", type text}, {\"Column7\", type number}, {\"Column8\", type number}, {\"Column9\", type number}, {\"Column10\", type number}, {\"Column11\", type number}, {\"Column12\", type number}, {\"Column13\", type number}, {\"Column14\", type number}, {\"Column15\", type number}, {\"Column16\", type number}, {\"Column17\", type number}, {\"Column18\", type number}, {\"Column19\", type number}, {\"Column20\", type number}, {\"Column21\", type number}, {\"Column22\", type number}, {\"Column23\", type number}, {\"Column24\", type number}, {\"Column25\", type number}, {\"Column26\", type number}, {\"Column27\", type number}, {\"Column28\", type number}, {\"Column29\", type number}, {\"Column30\", type number}}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Changed Type\",{\"Column1\", \"Column2\"}),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Removed Columns\", [PromoteAllScalars=true]),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Country Name\", type text}, {\"Country Code\", type text}, {\"Series Name\", type text}, {\"Series Code\", type text}, {\"2000\", type number}, {\"2001\", type number}, {\"2002\", type number}, {\"2003\", type number}, {\"2004\", type number}, {\"2005\", type number}, {\"2006\", type number}, {\"2007\", type number}, {\"2008\", type number}, {\"2009\", type number}, {\"2010\", type number}, {\"2011\", type number}, {\"2012\", type number}, {\"2013\", type number}, {\"2014\", type number}, {\"2015\", type number}, {\"2016\", type number}, {\"2017\", type number}, {\"2018\", type number}, {\"2019\", type number}, {\"2020\", type number}, {\"2021\", type number}, {\"2022\", type number}, {\"2023\", type number}}),",
+                "    #\"Unpivoted Columns\" = Table.UnpivotOtherColumns(#\"Changed Type1\", {\"Country Name\", \"Country Code\", \"Series Name\", \"Series Code\"}, \"Attribute\", \"Value\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Unpivoted Columns\",{{\"Attribute\", \"Year\"}}),",
+                "    #\"Changed Type2\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"Value\", type number}, {\"Year\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type2\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DateTableTemplate_a134054e-e68e-485f-b6e1-2a86e0254955",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "3d2e156e-57ff-40cc-8d68-ee9dc68b438b",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "ca867be7-64ed-4b11-a3cd-9068466d693b",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "ea479711-13ac-4f80-862a-7daf5b00b11b",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "764e072e-997b-4837-a242-62347e1888ad",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "c545d162-dca4-4993-a991-ad8209d30cba",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "7770cea8-82ee-4b75-a4c2-ab28ad0dc9cb",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "0e72fbc6-46f9-478f-983e-2f84ac7908e4",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "2f9a5111-85e9-48fd-a6a1-3c83b1d0ea34",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "0134b9e5-51a5-492e-9f6f-bd2e5a306179",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "f22e25d8-3fa0-458c-9f27-3a996d25e2c8",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "d632061a-da7f-445a-84eb-a3481ce3dc3b",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "8e433133-c274-432e-aa28-d13fc359e956"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "566710c9-5b63-4d1f-8225-ba6587a2480f",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_a134054e-e68e-485f-b6e1-2a86e0254955",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

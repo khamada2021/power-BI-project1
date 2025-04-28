@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "the business tools23"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "53f9ba6e-39e1-4223-91b0-dae375fbe86f"
+  }
+}
